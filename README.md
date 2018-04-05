@@ -138,3 +138,6 @@ java -jar example.jar
 # License
 
 GNU General Public License v3.0
+
+# Enhancements
+The following new features have been added:
