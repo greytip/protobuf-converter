@@ -2,7 +2,9 @@ package net.badata.protobuf.converter;
 
 import com.google.protobuf.ByteString;
 import net.badata.protobuf.converter.domain.ConverterDomain;
+import net.badata.protobuf.converter.domain.ConverterDomain.OptionTest;
 import net.badata.protobuf.converter.proto.ConverterProto;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,22 +28,43 @@ public class ConverterTest {
 
 	private FieldsIgnore fieldsIgnore;
 	private Map<String, String> testMap;
+	private HashMap<String, OptionTest> optionMap;
 
 	@Before
 	public void setUp() throws Exception {
-		createMap();
+		createSimpleMap();
+		createOptionMap();
 		createTestProtobuf();
 		createTestDomain();
 		createIgnoredFieldsMap();
 	}
 
-	private void createMap() {
+	private void createSimpleMap() {
 		testMap = new HashMap<>();
 		testMap.put("hello", "world");
 		testMap.put("a", "aaloo");
 		testMap.put("b", "bhaloo");
 	}
 
+	private void createOptionMap() {
+		optionMap = new HashMap<>();
+		optionMap.put("a", new OptionTest("orientation", "landscape"));
+		optionMap.put("b", new OptionTest("page_size", "A4"));
+		optionMap.put("c", new OptionTest("color", "false"));
+	}
+
+	private Map<String, ConverterProto.OptionTest> getOptionMapProto() {
+		Map<String, ConverterProto.OptionTest> map = new HashMap<>();
+		for (Map.Entry<String, OptionTest> e : optionMap.entrySet()) {
+			map.put(e.getKey(), getOptionTest(e.getValue()));
+		}
+		return map;
+	}
+	
+	private ConverterProto.OptionTest getOptionTest(OptionTest e) {
+		return ConverterProto.OptionTest.newBuilder().setName(e.getName()).setValue(e.getValue()).build();
+	}
+	
 	private void createTestProtobuf() {		
 		testProtobuf = ConverterProto.ConverterTest.newBuilder()
 				.setBooleanValue(false)
@@ -70,6 +93,7 @@ public class ConverterTest {
 				.setBytesValue(ByteString.copyFrom(new byte[]{ 0, 1, 3, 7 }))
 				.setRecursiveValue(ConverterProto.ConverterTest.newBuilder().setIntValue(1))
 				.putAllSimpleMap(testMap)
+				.putAllOptionMap(getOptionMapProto())
 				.build();
 	}
 
@@ -99,6 +123,7 @@ public class ConverterTest {
 		testDomain.setFieldConversionValue(fieldConverterTest);
 		testDomain.setSimpleListValue(Arrays.asList("110"));
 		testDomain.setSimpleMap(testMap);
+		testDomain.setOptionMap(optionMap);
 
 		ConverterDomain.PrimitiveTest primitiveTestItem = new ConverterDomain.PrimitiveTest();
 		primitiveTestItem.setIntValue(-1001);
@@ -173,6 +198,8 @@ public class ConverterTest {
 		Assert.assertEquals((Object) testProtobuf.getRecursiveValue().getIntValue(), result.getRecursiveValue().getIntValue());
 		Assert.assertEquals(testProtobuf.getSimpleMapCount(), result.getSimpleMap().size());
 		Assert.assertTrue(result.getSimpleMap().keySet().containsAll(testProtobuf.getSimpleMapMap().keySet()));
+		Assert.assertEquals(testProtobuf.getOptionMapCount(), result.getOptionMap().size());
+		Assert.assertTrue(result.getOptionMap().keySet().containsAll(testProtobuf.getOptionMapMap().keySet()));
 	}
 
 	@Test
@@ -232,6 +259,8 @@ public class ConverterTest {
 		Assert.assertEquals((Object) testDomain.getRecursiveValue().getIntValue(), result.getRecursiveValue().getIntValue());
 		Assert.assertEquals(testDomain.getSimpleMap().size(), result.getSimpleMapMap().size());
 		Assert.assertTrue(result.getSimpleMapMap().keySet().containsAll(testDomain.getSimpleMap().keySet()));
+		Assert.assertEquals(testDomain.getOptionMap().size(), result.getOptionMapMap().size());
+		Assert.assertTrue(result.getOptionMapMap().keySet().containsAll(testDomain.getOptionMap().keySet()));
 	}
 
 	@Test

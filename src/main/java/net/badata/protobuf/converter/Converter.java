@@ -385,22 +385,20 @@ public final class Converter {
 			R mappedKey = null; 
 			S mappedValue = null;
 			
-			if (protoKeyClass.isAssignableFrom(entry.getValue().getClass())) {
+			if (FieldUtils.isComplexType(domainKeyClass)) {
+				mappedKey = (R) createNestedConverter().toProtobuf((Class<? extends Message>)protoKeyClass, entry.getKey());
+			} else {
 				mappedKey = (R) entry.getKey();
 			}
-			if (protoValueClass.isAssignableFrom(entry.getValue().getClass())) {
-				mappedValue = (S) entry.getValue();
-			}
-
-			if (FieldUtils.isComplexType(protoKeyClass)) {
-				mappedKey = (R) createNestedConverter().toProtobuf((Class<? extends Message>)protoKeyClass, entry.getKey());
-			}
-			if (FieldUtils.isComplexType(protoValueClass)) {
+			
+			if (FieldUtils.isComplexType(domainValueClass)) {
 				mappedValue = (S) createNestedConverter().toProtobuf((Class<? extends Message>)protoValueClass, entry.getValue());
+			} else {
+				mappedValue = (S) entry.getValue();
 			}
 			
 			if (mappedKey == null || mappedValue == null) {
-				// ignore this for now
+				System.out.println("mappedKey or mappedValue are zero! ");
 			} else {
 				result.put(mappedKey, mappedValue);
 			}

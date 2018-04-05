@@ -2364,6 +2364,668 @@ public final class ConverterProto {
 
   }
 
+  public interface OptionTestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.OptionTest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>string value = 2;</code>
+     */
+    java.lang.String getValue();
+    /**
+     * <code>string value = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getValueBytes();
+  }
+  /**
+   * Protobuf type {@code net.badata.protobuf.converter.proto.OptionTest}
+   */
+  public  static final class OptionTest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.OptionTest)
+      OptionTestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use OptionTest.newBuilder() to construct.
+    private OptionTest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private OptionTest() {
+      name_ = "";
+      value_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OptionTest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              value_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_OptionTest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_OptionTest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              net.badata.protobuf.converter.proto.ConverterProto.OptionTest.class, net.badata.protobuf.converter.proto.ConverterProto.OptionTest.Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object value_;
+    /**
+     * <code>string value = 2;</code>
+     */
+    public java.lang.String getValue() {
+      java.lang.Object ref = value_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        value_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string value = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getValueBytes() {
+      java.lang.Object ref = value_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        value_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!getValueBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!getValueBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof net.badata.protobuf.converter.proto.ConverterProto.OptionTest)) {
+        return super.equals(obj);
+      }
+      net.badata.protobuf.converter.proto.ConverterProto.OptionTest other = (net.badata.protobuf.converter.proto.ConverterProto.OptionTest) obj;
+
+      boolean result = true;
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getValue()
+          .equals(other.getValue());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(net.badata.protobuf.converter.proto.ConverterProto.OptionTest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code net.badata.protobuf.converter.proto.OptionTest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.OptionTest)
+        net.badata.protobuf.converter.proto.ConverterProto.OptionTestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_OptionTest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_OptionTest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                net.badata.protobuf.converter.proto.ConverterProto.OptionTest.class, net.badata.protobuf.converter.proto.ConverterProto.OptionTest.Builder.class);
+      }
+
+      // Construct using net.badata.protobuf.converter.proto.ConverterProto.OptionTest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        value_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_OptionTest_descriptor;
+      }
+
+      public net.badata.protobuf.converter.proto.ConverterProto.OptionTest getDefaultInstanceForType() {
+        return net.badata.protobuf.converter.proto.ConverterProto.OptionTest.getDefaultInstance();
+      }
+
+      public net.badata.protobuf.converter.proto.ConverterProto.OptionTest build() {
+        net.badata.protobuf.converter.proto.ConverterProto.OptionTest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public net.badata.protobuf.converter.proto.ConverterProto.OptionTest buildPartial() {
+        net.badata.protobuf.converter.proto.ConverterProto.OptionTest result = new net.badata.protobuf.converter.proto.ConverterProto.OptionTest(this);
+        result.name_ = name_;
+        result.value_ = value_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.badata.protobuf.converter.proto.ConverterProto.OptionTest) {
+          return mergeFrom((net.badata.protobuf.converter.proto.ConverterProto.OptionTest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(net.badata.protobuf.converter.proto.ConverterProto.OptionTest other) {
+        if (other == net.badata.protobuf.converter.proto.ConverterProto.OptionTest.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getValue().isEmpty()) {
+          value_ = other.value_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        net.badata.protobuf.converter.proto.ConverterProto.OptionTest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (net.badata.protobuf.converter.proto.ConverterProto.OptionTest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object value_ = "";
+      /**
+       * <code>string value = 2;</code>
+       */
+      public java.lang.String getValue() {
+        java.lang.Object ref = value_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          value_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string value = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getValueBytes() {
+        java.lang.Object ref = value_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          value_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string value = 2;</code>
+       */
+      public Builder setValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string value = 2;</code>
+       */
+      public Builder clearValue() {
+        
+        value_ = getDefaultInstance().getValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string value = 2;</code>
+       */
+      public Builder setValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.OptionTest)
+    }
+
+    // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.OptionTest)
+    private static final net.badata.protobuf.converter.proto.ConverterProto.OptionTest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.ConverterProto.OptionTest();
+    }
+
+    public static net.badata.protobuf.converter.proto.ConverterProto.OptionTest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<OptionTest>
+        PARSER = new com.google.protobuf.AbstractParser<OptionTest>() {
+      public OptionTest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OptionTest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<OptionTest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OptionTest> getParserForType() {
+      return PARSER;
+    }
+
+    public net.badata.protobuf.converter.proto.ConverterProto.OptionTest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ConverterTestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.ConverterTest)
       com.google.protobuf.MessageOrBuilder {
@@ -2584,6 +3246,40 @@ public final class ConverterProto {
 
     java.lang.String getSimpleMapOrThrow(
         java.lang.String key);
+
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+    int getOptionMapCount();
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+    boolean containsOptionMap(
+        java.lang.String key);
+    /**
+     * Use {@link #getOptionMapMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>
+    getOptionMap();
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+    java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>
+    getOptionMapMap();
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+
+    net.badata.protobuf.converter.proto.ConverterProto.OptionTest getOptionMapOrDefault(
+        java.lang.String key,
+        net.badata.protobuf.converter.proto.ConverterProto.OptionTest defaultValue);
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+
+    net.badata.protobuf.converter.proto.ConverterProto.OptionTest getOptionMapOrThrow(
+        java.lang.String key);
   }
   /**
    * Protobuf type {@code net.badata.protobuf.converter.proto.ConverterTest}
@@ -2779,6 +3475,19 @@ public final class ConverterProto {
                   simpleMap__.getKey(), simpleMap__.getValue());
               break;
             }
+            case 138: {
+              if (!((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
+                optionMap_ = com.google.protobuf.MapField.newMapField(
+                    OptionMapDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00010000;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>
+              optionMap__ = input.readMessage(
+                  OptionMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              optionMap_.getMutableMap().put(
+                  optionMap__.getKey(), optionMap__.getValue());
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2814,6 +3523,8 @@ public final class ConverterProto {
       switch (number) {
         case 16:
           return internalGetSimpleMap();
+        case 17:
+          return internalGetOptionMap();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -3209,6 +3920,82 @@ public final class ConverterProto {
       return map.get(key);
     }
 
+    public static final int OPTIONMAP_FIELD_NUMBER = 17;
+    private static final class OptionMapDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>newDefaultInstance(
+                  net.badata.protobuf.converter.proto.ConverterProto.internal_static_net_badata_protobuf_converter_proto_ConverterTest_OptionMapEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  net.badata.protobuf.converter.proto.ConverterProto.OptionTest.getDefaultInstance());
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> optionMap_;
+    private com.google.protobuf.MapField<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>
+    internalGetOptionMap() {
+      if (optionMap_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            OptionMapDefaultEntryHolder.defaultEntry);
+      }
+      return optionMap_;
+    }
+
+    public int getOptionMapCount() {
+      return internalGetOptionMap().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+
+    public boolean containsOptionMap(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetOptionMap().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getOptionMapMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> getOptionMap() {
+      return getOptionMapMap();
+    }
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+
+    public java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> getOptionMapMap() {
+      return internalGetOptionMap().getMap();
+    }
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+
+    public net.badata.protobuf.converter.proto.ConverterProto.OptionTest getOptionMapOrDefault(
+        java.lang.String key,
+        net.badata.protobuf.converter.proto.ConverterProto.OptionTest defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> map =
+          internalGetOptionMap().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+     */
+
+    public net.badata.protobuf.converter.proto.ConverterProto.OptionTest getOptionMapOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> map =
+          internalGetOptionMap().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -3272,6 +4059,12 @@ public final class ConverterProto {
           internalGetSimpleMap(),
           SimpleMapDefaultEntryHolder.defaultEntry,
           16);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetOptionMap(),
+          OptionMapDefaultEntryHolder.defaultEntry,
+          17);
       unknownFields.writeTo(output);
     }
 
@@ -3353,6 +4146,16 @@ public final class ConverterProto {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(16, simpleMap__);
       }
+      for (java.util.Map.Entry<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> entry
+           : internalGetOptionMap().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>
+        optionMap__ = OptionMapDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(17, optionMap__);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3417,6 +4220,8 @@ public final class ConverterProto {
       }
       result = result && internalGetSimpleMap().equals(
           other.internalGetSimpleMap());
+      result = result && internalGetOptionMap().equals(
+          other.internalGetOptionMap());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3481,6 +4286,10 @@ public final class ConverterProto {
       if (!internalGetSimpleMap().getMap().isEmpty()) {
         hash = (37 * hash) + SIMPLEMAP_FIELD_NUMBER;
         hash = (53 * hash) + internalGetSimpleMap().hashCode();
+      }
+      if (!internalGetOptionMap().getMap().isEmpty()) {
+        hash = (37 * hash) + OPTIONMAP_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetOptionMap().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3593,6 +4402,8 @@ public final class ConverterProto {
         switch (number) {
           case 16:
             return internalGetSimpleMap();
+          case 17:
+            return internalGetOptionMap();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -3604,6 +4415,8 @@ public final class ConverterProto {
         switch (number) {
           case 16:
             return internalGetMutableSimpleMap();
+          case 17:
+            return internalGetMutableOptionMap();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -3695,6 +4508,7 @@ public final class ConverterProto {
           recursiveValueBuilder_ = null;
         }
         internalGetMutableSimpleMap().clear();
+        internalGetMutableOptionMap().clear();
         return this;
       }
 
@@ -3780,6 +4594,8 @@ public final class ConverterProto {
         }
         result.simpleMap_ = internalGetSimpleMap();
         result.simpleMap_.makeImmutable();
+        result.optionMap_ = internalGetOptionMap();
+        result.optionMap_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3946,6 +4762,8 @@ public final class ConverterProto {
         }
         internalGetMutableSimpleMap().mergeFrom(
             other.internalGetSimpleMap());
+        internalGetMutableOptionMap().mergeFrom(
+            other.internalGetOptionMap());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5606,6 +6424,129 @@ public final class ConverterProto {
             .putAll(values);
         return this;
       }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> optionMap_;
+      private com.google.protobuf.MapField<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>
+      internalGetOptionMap() {
+        if (optionMap_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              OptionMapDefaultEntryHolder.defaultEntry);
+        }
+        return optionMap_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>
+      internalGetMutableOptionMap() {
+        onChanged();;
+        if (optionMap_ == null) {
+          optionMap_ = com.google.protobuf.MapField.newMapField(
+              OptionMapDefaultEntryHolder.defaultEntry);
+        }
+        if (!optionMap_.isMutable()) {
+          optionMap_ = optionMap_.copy();
+        }
+        return optionMap_;
+      }
+
+      public int getOptionMapCount() {
+        return internalGetOptionMap().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+       */
+
+      public boolean containsOptionMap(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetOptionMap().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getOptionMapMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> getOptionMap() {
+        return getOptionMapMap();
+      }
+      /**
+       * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+       */
+
+      public java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> getOptionMapMap() {
+        return internalGetOptionMap().getMap();
+      }
+      /**
+       * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+       */
+
+      public net.badata.protobuf.converter.proto.ConverterProto.OptionTest getOptionMapOrDefault(
+          java.lang.String key,
+          net.badata.protobuf.converter.proto.ConverterProto.OptionTest defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> map =
+            internalGetOptionMap().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+       */
+
+      public net.badata.protobuf.converter.proto.ConverterProto.OptionTest getOptionMapOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> map =
+            internalGetOptionMap().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearOptionMap() {
+        internalGetMutableOptionMap().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+       */
+
+      public Builder removeOptionMap(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableOptionMap().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest>
+      getMutableOptionMap() {
+        return internalGetMutableOptionMap().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+       */
+      public Builder putOptionMap(
+          java.lang.String key,
+          net.badata.protobuf.converter.proto.ConverterProto.OptionTest value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableOptionMap().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .net.badata.protobuf.converter.proto.OptionTest&gt; optionMap = 17;</code>
+       */
+
+      public Builder putAllOptionMap(
+          java.util.Map<java.lang.String, net.badata.protobuf.converter.proto.ConverterProto.OptionTest> values) {
+        internalGetMutableOptionMap().getMutableMap()
+            .putAll(values);
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
@@ -5671,6 +6612,11 @@ public final class ConverterProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_net_badata_protobuf_converter_proto_OptionTest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_net_badata_protobuf_converter_proto_OptionTest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -5680,6 +6626,11 @@ public final class ConverterProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_net_badata_protobuf_converter_proto_ConverterTest_SimpleMapEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_net_badata_protobuf_converter_proto_ConverterTest_OptionMapEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_net_badata_protobuf_converter_proto_ConverterTest_OptionMapEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5699,30 +6650,36 @@ public final class ConverterProto {
       "\022\022\n\nnullString\030\001 \001(\t\022\036\n\026customInspection" +
       "String\030\002 \001(\t\022M\n\021defaultPrimitives\030\003 \001(\0132" +
       "2.net.badata.protobuf.converter.proto.Pr" +
-      "imitiveTest\"\363\006\n\rConverterTest\022\020\n\010intValu" +
-      "e\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfloatValue" +
-      "\030\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014booleanVa" +
-      "lue\030\005 \001(\010\022\023\n\013stringValue\030\006 \001(\t\022J\n\016primit" +
-      "iveValue\030\007 \001(\01322.net.badata.protobuf.con" +
-      "verter.proto.PrimitiveTest\022U\n\024fieldConve" +
-      "rsionValue\030\010 \001(\01327.net.badata.protobuf.c" +
-      "onverter.proto.FieldConverterTest\022N\n\020nul" +
-      "lDefaultValue\030\t \001(\01324.net.badata.protobu" +
-      "f.converter.proto.NullDefaultTest\022\027\n\017str" +
-      "ingListValue\030\n \003(\t\022L\n\020complexListValue\030\013" +
+      "imitiveTest\")\n\nOptionTest\022\014\n\004name\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t\"\254\010\n\rConverterTest\022\020\n\010intV" +
+      "alue\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfloatVa" +
+      "lue\030\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014boolea" +
+      "nValue\030\005 \001(\010\022\023\n\013stringValue\030\006 \001(\t\022J\n\016pri" +
+      "mitiveValue\030\007 \001(\01322.net.badata.protobuf." +
+      "converter.proto.PrimitiveTest\022U\n\024fieldCo" +
+      "nversionValue\030\010 \001(\01327.net.badata.protobu" +
+      "f.converter.proto.FieldConverterTest\022N\n\020" +
+      "nullDefaultValue\030\t \001(\01324.net.badata.prot" +
+      "obuf.converter.proto.NullDefaultTest\022\027\n\017" +
+      "stringListValue\030\n \003(\t\022L\n\020complexListValu" +
+      "e\030\013 \003(\01322.net.badata.protobuf.converter." +
+      "proto.PrimitiveTest\022K\n\017complexSetValue\030\014" +
       " \003(\01322.net.badata.protobuf.converter.pro" +
-      "to.PrimitiveTest\022K\n\017complexSetValue\030\014 \003(" +
-      "\01322.net.badata.protobuf.converter.proto." +
-      "PrimitiveTest\022Z\n\036complexNullableCollecti" +
-      "onValue\030\r \003(\01322.net.badata.protobuf.conv" +
-      "erter.proto.PrimitiveTest\022\022\n\nbytesValue\030" +
-      "\016 \001(\014\022J\n\016recursiveValue\030\017 \001(\01322.net.bada" +
+      "to.PrimitiveTest\022Z\n\036complexNullableColle" +
+      "ctionValue\030\r \003(\01322.net.badata.protobuf.c" +
+      "onverter.proto.PrimitiveTest\022\022\n\nbytesVal" +
+      "ue\030\016 \001(\014\022J\n\016recursiveValue\030\017 \001(\01322.net.b" +
+      "adata.protobuf.converter.proto.Converter" +
+      "Test\022T\n\tsimpleMap\030\020 \003(\0132A.net.badata.pro" +
+      "tobuf.converter.proto.ConverterTest.Simp" +
+      "leMapEntry\022T\n\toptionMap\030\021 \003(\0132A.net.bada" +
       "ta.protobuf.converter.proto.ConverterTes" +
-      "t\022T\n\tsimpleMap\030\020 \003(\0132A.net.badata.protob" +
-      "uf.converter.proto.ConverterTest.SimpleM" +
-      "apEntry\0320\n\016SimpleMapEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001B5\n#net.badata.protobuf" +
-      ".converter.protoB\016ConverterProtob\006proto3"
+      "t.OptionMapEntry\0320\n\016SimpleMapEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032a\n\016OptionMapE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022>\n\005value\030\002 \001(\0132/.net.b" +
+      "adata.protobuf.converter.proto.OptionTes" +
+      "t:\0028\001B5\n#net.badata.protobuf.converter.p" +
+      "rotoB\016ConverterProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5754,17 +6711,29 @@ public final class ConverterProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_descriptor,
         new java.lang.String[] { "NullString", "CustomInspectionString", "DefaultPrimitives", });
-    internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor =
+    internal_static_net_badata_protobuf_converter_proto_OptionTest_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_net_badata_protobuf_converter_proto_OptionTest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_net_badata_protobuf_converter_proto_OptionTest_descriptor,
+        new java.lang.String[] { "Name", "Value", });
+    internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_net_badata_protobuf_converter_proto_ConverterTest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor,
-        new java.lang.String[] { "IntValue", "LongValue", "FloatValue", "DoubleValue", "BooleanValue", "StringValue", "PrimitiveValue", "FieldConversionValue", "NullDefaultValue", "StringListValue", "ComplexListValue", "ComplexSetValue", "ComplexNullableCollectionValue", "BytesValue", "RecursiveValue", "SimpleMap", });
+        new java.lang.String[] { "IntValue", "LongValue", "FloatValue", "DoubleValue", "BooleanValue", "StringValue", "PrimitiveValue", "FieldConversionValue", "NullDefaultValue", "StringListValue", "ComplexListValue", "ComplexSetValue", "ComplexNullableCollectionValue", "BytesValue", "RecursiveValue", "SimpleMap", "OptionMap", });
     internal_static_net_badata_protobuf_converter_proto_ConverterTest_SimpleMapEntry_descriptor =
       internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor.getNestedTypes().get(0);
     internal_static_net_badata_protobuf_converter_proto_ConverterTest_SimpleMapEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_ConverterTest_SimpleMapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_net_badata_protobuf_converter_proto_ConverterTest_OptionMapEntry_descriptor =
+      internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor.getNestedTypes().get(1);
+    internal_static_net_badata_protobuf_converter_proto_ConverterTest_OptionMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_net_badata_protobuf_converter_proto_ConverterTest_OptionMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
   }
 

@@ -63,6 +63,8 @@ public class ConverterDomain {
 		private Test recursiveValue;
 		@ProtoField
 		private Map<String, String> simpleMap;
+		@ProtoField
+		private Map<String, OptionTest> optionMap;
 
 
 		public Long getLongValue() {
@@ -193,8 +195,54 @@ public class ConverterDomain {
 		public void setSimpleMap(Map<String, String> simpleMap) {
 			this.simpleMap = simpleMap;
 		}
+
+		public Map<String, OptionTest> getOptionMap() {
+			return optionMap;
+		}
+
+		public void setOptionMap(Map<String, OptionTest> optionMap) {
+			this.optionMap = optionMap;
+		}
 	}
 
+	@ProtoClass(ConverterProto.OptionTest.class)
+	public static class OptionTest {
+		@ProtoField
+		private String name;
+		
+		@ProtoField
+		private String value;
+
+		public OptionTest() {
+		}
+
+		public OptionTest(String name, String value) {
+			this.name = name;
+			this.value = value;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getValue() {
+			return value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+		
+		@Override
+		public String toString() {
+			return String.format("%s=%s", name, value);
+		}
+	}
+	
 	@ProtoClass(ConverterProto.PrimitiveTest.class)
 	public static class PrimitiveTest {
 

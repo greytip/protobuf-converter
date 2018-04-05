@@ -25,6 +25,11 @@ message NullDefaultTest {
 	PrimitiveTest defaultPrimitives = 3;
 }
 
+message OptionTest {
+	string name = 1;
+	string value = 2;
+}
+
 message ConverterTest {
 	int32 intValue = 1;
 	int64 longValue = 2;
@@ -42,4 +47,5 @@ message ConverterTest {
 	bytes bytesValue = 14;
 	ConverterTest recursiveValue = 15;
 	map<string, string> simpleMap = 16;
+	map<string, OptionTest> optionMap = 17;
 }
