@@ -4,10 +4,12 @@ plugins {
 
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: "maven-publish"
 apply plugin: 'idea'
 apply plugin: 'com.google.protobuf'
 
 group = 'com.github.BAData'
+version = externalVersion
 
 repositories {
     mavenCentral()
@@ -58,4 +60,34 @@ install {
             }
         }
     }
+}
+
+publishing {
+  publications {
+    maven(MavenPublication) {
+		groupId group
+		artifact jar
+        artifact sourcesJar
+        artifact javadocJar
+    }
+  }
+  
+  repositories {
+    maven {
+      url nexusUrl
+      name "nexus"
+      credentials {
+          username nexusUserName
+          password nexusPassword
+      }
+    }
+  }
+}
+
+if (JavaVersion.current().isJava8Compatible()) {
+  allprojects {
+    tasks.withType(Javadoc) {
+      options.addStringOption('Xdoclint:none', '-quiet')
+    }
+  }
 }
