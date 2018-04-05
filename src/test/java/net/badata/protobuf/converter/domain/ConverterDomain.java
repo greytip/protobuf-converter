@@ -20,6 +20,7 @@ import net.badata.protobuf.converter.type.SetListConverterImpl;
 import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -60,6 +61,8 @@ public class ConverterDomain {
 		private ByteString bytesValue;
 		@ProtoField
 		private Test recursiveValue;
+		@ProtoField
+		private Map<String, String> simpleMap;
 
 
 		public Long getLongValue() {
@@ -181,6 +184,14 @@ public class ConverterDomain {
 
 		public void setRecursiveValue(Test recursiveValue) {
 			this.recursiveValue = recursiveValue;
+		}
+
+		public Map<String, String> getSimpleMap() {
+			return simpleMap;
+		}
+
+		public void setSimpleMap(Map<String, String> simpleMap) {
+			this.simpleMap = simpleMap;
 		}
 	}
 

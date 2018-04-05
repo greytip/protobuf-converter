@@ -9,7 +9,9 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import static net.badata.protobuf.converter.domain.ConverterDomain.TestEnumConverter.TestEnum;
@@ -23,15 +25,24 @@ public class ConverterTest {
 	private ConverterProto.ConverterTest testProtobuf;
 
 	private FieldsIgnore fieldsIgnore;
+	private Map<String, String> testMap;
 
 	@Before
 	public void setUp() throws Exception {
+		createMap();
 		createTestProtobuf();
 		createTestDomain();
 		createIgnoredFieldsMap();
 	}
 
-	private void createTestProtobuf() {
+	private void createMap() {
+		testMap = new HashMap<>();
+		testMap.put("hello", "world");
+		testMap.put("a", "aaloo");
+		testMap.put("b", "bhaloo");
+	}
+
+	private void createTestProtobuf() {		
 		testProtobuf = ConverterProto.ConverterTest.newBuilder()
 				.setBooleanValue(false)
 				.setFloatValue(0.1f)
@@ -58,6 +69,7 @@ public class ConverterTest {
 				.addComplexSetValue(ConverterProto.PrimitiveTest.newBuilder().setIntValue(1002))
 				.setBytesValue(ByteString.copyFrom(new byte[]{ 0, 1, 3, 7 }))
 				.setRecursiveValue(ConverterProto.ConverterTest.newBuilder().setIntValue(1))
+				.putAllSimpleMap(testMap)
 				.build();
 	}
 
@@ -86,6 +98,7 @@ public class ConverterTest {
 		testDomain.setPrimitiveValue(primitiveTest);
 		testDomain.setFieldConversionValue(fieldConverterTest);
 		testDomain.setSimpleListValue(Arrays.asList("110"));
+		testDomain.setSimpleMap(testMap);
 
 		ConverterDomain.PrimitiveTest primitiveTestItem = new ConverterDomain.PrimitiveTest();
 		primitiveTestItem.setIntValue(-1001);
@@ -158,6 +171,8 @@ public class ConverterTest {
 
 		Assert.assertEquals(testProtobuf.getBytesValue(), result.getBytesValue());
 		Assert.assertEquals((Object) testProtobuf.getRecursiveValue().getIntValue(), result.getRecursiveValue().getIntValue());
+		Assert.assertEquals(testProtobuf.getSimpleMapCount(), result.getSimpleMap().size());
+		Assert.assertTrue(result.getSimpleMap().keySet().containsAll(testProtobuf.getSimpleMapMap().keySet()));
 	}
 
 	@Test
@@ -215,6 +230,8 @@ public class ConverterTest {
 
 		Assert.assertTrue(result.getComplexNullableCollectionValueList().isEmpty());
 		Assert.assertEquals((Object) testDomain.getRecursiveValue().getIntValue(), result.getRecursiveValue().getIntValue());
+		Assert.assertEquals(testDomain.getSimpleMap().size(), result.getSimpleMapMap().size());
+		Assert.assertTrue(result.getSimpleMapMap().keySet().containsAll(testDomain.getSimpleMap().keySet()));
 	}
 
 	@Test

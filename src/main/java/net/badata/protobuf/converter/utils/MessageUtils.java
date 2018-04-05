@@ -20,6 +20,7 @@ package net.badata.protobuf.converter.utils;
 import com.google.protobuf.Message;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 /**
  * Utilities for extract Protobuf messages .
@@ -61,5 +62,25 @@ public class MessageUtils {
 			return Message.class;
 		}
 	}
+
+	@SuppressWarnings("unchecked")
+	/**
+	 * Extract Protobuf message types from map.
+	 *
+	 * @param object     Object that contains collection of Protobuf messages.
+	 * @param methodName getter method name.
+	 * @return {@link net.badata.protobuf.converter.utils.MessageClassTuple}
+	 */
+	public static MessageClassTuple getMessageMapTypes(final Object object, final String methodName) {
+		try {
+			ParameterizedType genericType = (ParameterizedType) object.getClass().getMethod(methodName)
+					.getGenericReturnType();
+			Type[] args = genericType.getActualTypeArguments();
+			assert args.length == 2;
+			return new MessageClassTuple(args[0], args[1]);
+		} catch (NoSuchMethodException e) {
+			return new MessageClassTuple(Message.class, Message.class);
+		}
+	} 
 
 }

@@ -17,7 +17,19 @@
 
 package net.badata.protobuf.converter;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import com.google.protobuf.Message;
+
 import net.badata.protobuf.converter.annotation.ProtoClass;
 import net.badata.protobuf.converter.exception.ConverterException;
 import net.badata.protobuf.converter.exception.MappingException;
@@ -28,14 +40,12 @@ import net.badata.protobuf.converter.mapping.MappingResult;
 import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.resolver.FieldResolverFactory;
 import net.badata.protobuf.converter.utils.AnnotationUtils;
+import net.badata.protobuf.converter.utils.ClassTuple;
 import net.badata.protobuf.converter.utils.FieldUtils;
+import net.badata.protobuf.converter.utils.MessageClassTuple;
 import net.badata.protobuf.converter.utils.MessageUtils;
 import net.badata.protobuf.converter.writer.DomainWriter;
 import net.badata.protobuf.converter.writer.ProtobufWriter;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.util.*;
 
 /**
  * Converts data from Protobuf messages to domain model objects and vice versa.
@@ -197,6 +207,12 @@ public final class Converter {
 				fieldWriter.write(fieldResolver, createNestedConverter().toDomain(fieldResolver.getDomainType(),
 						(Message) mappedValue));
 				break;
+			case MAP_MAPPING:
+				ClassTuple mapTypes = FieldUtils.extractMapTypes(fieldResolver.getField());
+				mappedValue = createDomainValueMap(mapTypes.v1, mapTypes.v2, mappedValue);
+				fieldWriter.write(fieldResolver, mappedValue);
+				break;
+				
 			case COLLECTION_MAPPING:
 				Class<?> collectionType = FieldUtils.extractCollectionType(fieldResolver.getField());
 				if (FieldUtils.isComplexType(collectionType)) {
@@ -215,6 +231,26 @@ public final class Converter {
 	@SuppressWarnings("unchecked")
 	private <T> List<T> createDomainValueList(final Class<T> type, final Object protobufCollection) {
 		return createNestedConverter().toDomain(type, (List<? extends Message>) protobufCollection);
+	}
+
+	@SuppressWarnings("unchecked")
+	private <K, V> Map<K, V> createDomainValueMap(final Class<K> type1, final Class<V> type2, final Object protobufMap) {
+		Map<? extends Message, ? extends Message> protoMap = (Map<? extends Message, ? extends Message>) protobufMap;
+		Map<K, V> result = new HashMap<K, V>();
+		
+		for (Map.Entry<? extends Message, ? extends Message> entry: protoMap.entrySet()) {
+			K mappedKey = (K) entry.getKey();
+			V mappedValue = (V) entry.getValue();
+
+			if (FieldUtils.isComplexType(type1)) {
+				mappedKey = createNestedConverter().toDomain(type1, entry.getKey());
+			}
+			if (FieldUtils.isComplexType(type1)) {
+				mappedValue = createNestedConverter().toDomain(type2, entry.getValue());
+			}
+			result.put(mappedKey, mappedValue);
+		}
+		return result;
 	}
 
 	/**
@@ -307,6 +343,13 @@ public final class Converter {
 						FieldUtils.createProtobufGetterName(fieldResolver));
 				fieldWriter.write(fieldResolver, createNestedConverter().toProtobuf(protobufClass, mappedValue));
 				break;
+			case MAP_MAPPING:
+				ClassTuple domainMapTypes = FieldUtils.extractMapTypes(fieldResolver.getField());
+				MessageClassTuple protoMapTypes = MessageUtils.getMessageMapTypes(
+						mappingResult.getDestination(), FieldUtils.createProtobufGetterName(fieldResolver));
+				mappedValue = createProtobufMap(domainMapTypes.v1, domainMapTypes.v2, protoMapTypes.v1, protoMapTypes.v2, (Map) mappedValue);
+				fieldWriter.write(fieldResolver, mappedValue);
+				break;
 			case COLLECTION_MAPPING:
 				Class<?> collectionType = FieldUtils.extractCollectionType(fieldResolver.getField());
 				if (FieldUtils.isComplexType(collectionType)) {
@@ -321,10 +364,49 @@ public final class Converter {
 		}
 	}
 
+
 	private <E extends Message> Collection<?> createProtobufValueList(final Class<E> type, final Class<?>
 			domainCollectionClass, final Collection<?> domainCollection) {
 		return createNestedConverter()
 				.toProtobuf((Class<? extends Collection>) domainCollectionClass, type, domainCollection);
+	}
+
+	@SuppressWarnings("unchecked")
+	private <P, Q, R, S> Map<R, S> createProtobufMap(final Class<P> domainKeyClass, final Class<Q> domainValueClass, 
+			            final Class<R> protoKeyClass, final Class<S> protoValueClass, 
+			            final Map<?,?> domainMap) {
+		Map<R, S> result = new HashMap<>();
+		
+		if (domainMap == null) {
+			return null;
+		}
+		
+		for (Entry<?, ?> entry: domainMap.entrySet()) {
+			R mappedKey = null; 
+			S mappedValue = null;
+			
+			if (protoKeyClass.isAssignableFrom(entry.getValue().getClass())) {
+				mappedKey = (R) entry.getKey();
+			}
+			if (protoValueClass.isAssignableFrom(entry.getValue().getClass())) {
+				mappedValue = (S) entry.getValue();
+			}
+
+			if (FieldUtils.isComplexType(protoKeyClass)) {
+				mappedKey = (R) createNestedConverter().toProtobuf((Class<? extends Message>)protoKeyClass, entry.getKey());
+			}
+			if (FieldUtils.isComplexType(protoValueClass)) {
+				mappedValue = (S) createNestedConverter().toProtobuf((Class<? extends Message>)protoValueClass, entry.getValue());
+			}
+			
+			if (mappedKey == null || mappedValue == null) {
+				// ignore this for now
+			} else {
+				result.put(mappedKey, mappedValue);
+			}
+		}
+		
+		return result;
 	}
 
 }
