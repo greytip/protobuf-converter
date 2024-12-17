@@ -1,5 +1,6 @@
 plugins {
 	id "com.google.protobuf" version "0.8.5"
+    id "com.google.cloud.artifactregistry.gradle-plugin" version "2.2.0"
 }
 
 apply plugin: 'java'
@@ -12,6 +13,7 @@ group = 'com.github.BAData'
 version = externalVersion
 
 repositories {
+    maven { url = 'artifactregistry://asia-south1-maven.pkg.dev/greyt-container/greytip-maven' }
     mavenCentral()
 }
 
@@ -73,14 +75,7 @@ publishing {
   }
   
   repositories {
-    maven {
-      url nexusUrl
-      name "nexus"
-      credentials {
-          username nexusUserName
-          password nexusPassword
-      }
-    }
+      maven { url = 'artifactregistry://asia-south1-maven.pkg.dev/greyt-container/greytip-maven' }
   }
 }
 

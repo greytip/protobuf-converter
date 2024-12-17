@@ -1,0 +1,24 @@
+name: Protobuff-converter
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
+      - 'map-support'
+      - 'PD-16831'
+
+env:
+  BUILD_TAG: ${{ github.ref_name }}-${{ github.run_number }}
+jobs:
+  build:
+    name: Trigger Build and Push of Docker Image
+    runs-on: greytip-gradle5.6
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set GAR auth
+        run: |
+          gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
+      - name: Gradle Build
+        run: |
+          gradle publish
