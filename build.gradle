@@ -13,7 +13,7 @@ group = 'com.github.BAData'
 version = externalVersion
 
 repositories {
-    maven { url = 'artifactregistry://asia-south1-maven.pkg.dev/greyt-container/greytip-maven' }
+    maven { url = 'artifactregistry://asia-south1-maven.pkg.dev/greyt-container/greytip-maven'}
     mavenCentral()
 }
 
