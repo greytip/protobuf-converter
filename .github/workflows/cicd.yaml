@@ -12,7 +12,7 @@ env:
 jobs:
   build:
     name: Trigger Build and Push of Docker Image
-    runs-on: greytip-gradle5.6
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
